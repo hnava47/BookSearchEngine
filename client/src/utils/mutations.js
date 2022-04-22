@@ -25,3 +25,35 @@ export const LOGIN = gql`
         }
     }
 `;
+
+export const SAVE_BOOK = gql`
+    mutation saveBook($input: bookInput!) {
+        saveBook(input: $input) {
+            savedBooks {
+                bookId
+                authors
+                image
+                description
+                title
+                link
+            }
+            bookCount
+        }
+    }
+`;
+
+export const DELETE_BOOK = gql`
+    mutation deleteBook($bookId: String!) {
+        deleteBook(bookId: $bookId) {
+            savedBooks {
+                bookId
+                authors
+                description
+                title
+                image
+                link
+            }
+            bookCount
+        }
+    }
+`;
